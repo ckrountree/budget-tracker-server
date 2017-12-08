@@ -18,6 +18,7 @@
   "author": "Marty Nelson <marty@martypdx.com>",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^1.0.3",
     "body-parser": "^1.15.2",
     "cors": "^2.8.1",
     "express": "^4.14.0",
