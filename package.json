@@ -18,9 +18,12 @@
   "author": "Marty Nelson <marty@martypdx.com>",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^1.0.3",
     "body-parser": "^1.15.2",
     "cors": "^2.8.1",
     "express": "^4.14.0",
+    // "jsonwebtoken": "^8.1.0",
+    "jsonwebtoken-promisified": "^1.0.3",
     "mongoose": "^4.6.5",
     "morgan": "^1.7.0"
   },

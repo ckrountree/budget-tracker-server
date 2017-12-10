@@ -1,7 +1,9 @@
 const app = require('./lib/app');
 const http = require('http');
 const port = process.env.PORT || 3001;
-require('./lib/setup-mongoose');
+const connect = require('./lib/utils/connect');
+
+connect();
 
 const server = http.createServer(app);
 server.listen(port, () => {
