@@ -17,7 +17,6 @@ describe('categories api', () => {
             .send(vacation)
             .then(res => {
                 const cat = res.body;
-                console.log('this is my category', cat);
                 assert.ok(cat._id);
                 assert.equal(cat.name, vacation.name);
                 assert.equal(cat.budget, vacation.budget);
