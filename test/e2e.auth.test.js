@@ -15,7 +15,6 @@ describe('Authorization api', () => {
                 password: 'please'
             })
             .then(({ body }) => {
-                console.log(body, 'I AM YOUR BODY');
                 token = body.token;});
     });
     
@@ -40,7 +39,7 @@ describe('Authorization api', () => {
                 assert.isOk(body.token);
             });
     });
-
+    
     it('rejects with a bad password', () => {
         return request
             .post('/api/auth/signin')
@@ -51,19 +50,10 @@ describe('Authorization api', () => {
                 });
     });
 
-    it.only('gets payload', () => {
-        return request
+    it('gets payload', () => {
+        request
             .get('/api/auth/verify')
             .set('Authorization', token)
-            .then(() => assert.ok(1));
-    });
-
-    it.only('gets a user by id', () => {
-        return request
-            .get('/api/auth/')
-            .set('Authorization', token)
-            .then(body => {
-                assert.equal(body._id, token.id);
-            });
+            .then((res) => assert.deepEqual(res, { verified: true }));
     });
 });
