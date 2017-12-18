@@ -7,15 +7,7 @@ after(() => mongoose.connection.close());
 
 
 module.exports = {
-    drop(connection) {
-        return () => {
-            return new Promise((resolve, reject) => {
-                const drop = () => connection.db.dropDatabase((error, value) => {
-                    error ? reject(error) : resolve(value);
-                });
-                if (connection.readyState === 1) drop();
-                else connect.on('open', drop);
-            });
-        };
+    drop() {
+        return mongoose.connection.dropDatabase();
     }
 };
